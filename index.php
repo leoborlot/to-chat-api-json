@@ -6,8 +6,10 @@ try {
         'body' => $_GET['body'],
     ];
     $token = $_GET['token'];
+    $account = $_GET['account'];
+    $instance = $_GET['instance'];
     $json = json_encode($data);
-    $url = "https://api.chat-api.com/message?token=$token";
+    $url = "https://$account/$instance/message?token=$token";
     $options = stream_context_create([
         'http' => [
             'method'  => 'POST',
